@@ -10,6 +10,11 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// STATUS OK for server health
+app.get("/up", (req, res) => {
+  res.status(200).end();
+});
+
 // Routes
 app.get("/", (req, res) => {
   res.send("Express + TypeScript Server is running");
